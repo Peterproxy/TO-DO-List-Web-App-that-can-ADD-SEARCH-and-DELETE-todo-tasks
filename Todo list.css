@@ -1,0 +1,104 @@
+h1,
+h2,
+h3 {
+    margin-left: 300px;
+}
+
+body {
+    background-image: url(back.jpg);
+}
+
+h1,
+h2 {
+    font-weight: normal;
+}
+
+#wrapper {
+    width: 70%;
+    max-width: 960%;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    padding: 0 0 20px;
+    overflow: hidden;
+    border: 1px solid lightgray;
+    background-image: url(back.jpg);
+}
+
+#page-banner {
+    background: #eee;
+    padding: 10px 0;
+}
+
+#page-banner h1,
+#page-banner p {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+}
+
+#page-banner input {
+    width: 90%;
+    max-width: 300px;
+    margin: 50px auto 0px;
+    display: block;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #444;
+}
+
+#add-todo [type=text] {
+    width: 90%;
+    max-width: 300px;
+    margin: 50px auto 0px;
+    display: inline-block;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #444;
+    margin-left: 300px;
+}
+
+#todo-list,
+#tabbed-content {
+    margin: 30px;
+}
+
+#todo-list ul,
+#tabbed-content ul {
+    list-style: none;
+    padding: 0px;
+}
+
+#todo-list li {
+    padding: 20px;
+    border-left: 5px solid #ddd;
+    margin: 20px 10px;
+    font-family: Geneva, sans-serif;
+    font-weight: bolder;
+}
+
+#todo-list li:hover {
+    border-color: #9361bf;
+    cursor: pointer;
+    background-color: rgb(228, 169, 188);
+}
+
+#add-todo button {
+    color: white;
+    background: #9361bf;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.edit:hover,
+.delete:hover,
+#add-todo button:hover,
+#search-todo button:hover {
+    background-color: black;
+    cursor: pointer;
+}
