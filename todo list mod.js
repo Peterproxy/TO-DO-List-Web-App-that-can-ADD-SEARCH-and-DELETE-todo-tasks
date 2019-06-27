@@ -1,70 +1,79 @@
-let inputText = document.getElementById("text"),
-    items = document.querySelectorAll("#list li"),
-    tab = [],
-    index;
+const list = document.querySelector('#todo-list ul');
 
-// get the selected li index using array
-// populate array with li values
+//ADD TODO FUNCTION
+function addTodo(e) {
+    e.preventDefault();
+    const value = addTodos.querySelector('input[type="text"]').value;
+    //console.log(value);
+    const li = document.createElement('li');
+    const todoText = document.createElement('span');
+    const deleteBtn = document.createElement('span');
+    const editBtn = document.createElement('span');
 
-for (let i = 0; i < items.length; i++) {
-    tab.push(items[i].innerHTML);
+
+    //Add Content
+    editBtn.innerHTML = 'Edit';
+    deleteBtn.innerHTML = 'Delete';
+    todoText.innerHTML = value;
+
+    //Add Styles
+    todoText.classList.add('name');
+    deleteBtn.classList.add('delete');
+    editBtn.classList.add('edit');
+
+    //Append to document
+    li.appendChild(todoText);
+    li.appendChild(deleteBtn);
+    li.appendChild(editBtn);
+    list.appendChild(li);
+
+    let editValue = addTodos.querySelector('input[type="text"]').value;
+    console.log(editValue);
+
 }
 
-// get li index onclick
-for (let i = 0; i < items.length; i++) {
+//SEARCH BAR
+let searchBar = document.forms['search-todo'].querySelector('input');
+searchBar.addEventListener('keyup', function(e) {
+    const term = e.target.value.toLowerCase();
+    const tudos = list.getElementsByTagName('li');
+    Array.from(tudos).forEach(function(todo) {
+        const task = todo.firstElementChild.textContent;
+        if (task.toLowerCase().indexOf(term) != -1) { todo.style.display = 'block'; } else { todo.style.display = 'none' }
+    })
+})
 
-    items[i].onclick = function() {
-        index = tab.indexOf(this.innerHTML);
-        console.log(this.innerHTML + " INDEX = " + index);
-        // set the selected li value into input text
-        inputText.value = this.innerHTML;
-    };
-
-}
-
-function refreshArray() {
-    // clear array
-    tab.length = 0;
-    items = document.querySelectorAll("#list li");
-    // fill array
-    for (let i = 0; i < items.length; i++) {
-        tab.push(items[i].innerHTML);
+//delete Todo
+list.addEventListener('click', function(e) {
+    if (e.target.className == 'delete') {
+        const li = e.target.parentElement;
+        list.removeChild(li);
     }
-}
+})
 
-function addLI() {
+//ADD TODO
+const addTodos = document.forms['add-todo'];
+addTodos.addEventListener('submit', addTodo);
 
-    let listNode = document.getElementById("list"),
-        textNode = document.createTextNode(inputText.value),
-        liNode = document.createElement("li");
 
-    liNode.appendChild(textNode);
-    listNode.appendChild(liNode);
+//EDIT
+let index, items;
+ulItems = document.querySelectorAll('#ullist li');
+liItems = document.querySelectorAll('#ullist li .name');
+editBtn = document.querySelectorAll('#ullist .edit');
+const value = document.querySelector('#add-todo input[type="text"]').value;
 
-    refreshArray();
 
-    // add event to the new LI
+for (let i = 0; i < liItems.length; i++) {
+    editTask = liItems[i].textContent;
+    console.log(editTask);
 
-    liNode.onclick = function() {
-        index = tab.indexOf(liNode.innerHTML);
-        console.log(liNode.innerHTML + " INDEX = " + index);
-        // set the selected li value into input text
-        inputText.value = liNode.innerHTML;
-    };
-
-}
-
-function editLI() {
-    // edit the selected li using input text
-    items[index].innerHTML = inputText.value;
-    refreshArray();
-}
-
-function deleteLI() {
-
-    refreshArray();
-    if (items.length > 0) {
-        items[index].parentNode.removeChild(items[index]);
-        inputText.value = "";
-    }
+    editBtn[i].addEventListener('click', function(e) {
+        if (e.target.className == 'edit') {
+            console.log(value);
+            liItems[i].textContent = 'changed';
+            console.log('edit ' + [i],
+                'button is clicked');
+        }
+    })
 }
