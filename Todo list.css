@@ -50,20 +50,8 @@ h2 {
     color: #444;
 }
 
-#add-todo [type=text] {
-    width: 90%;
-    max-width: 300px;
-    margin: 50px auto 0px;
-    display: inline-block;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-    color: #444;
-    margin-left: 300px;
-}
-
 #todo-list,
+#add-todo,
 #tabbed-content {
     margin: 30px;
 }
@@ -79,7 +67,6 @@ h2 {
     border-left: 5px solid #ddd;
     margin: 20px 10px;
     font-family: Geneva, sans-serif;
-    font-weight: bolder;
 }
 
 #todo-list li:hover {
@@ -88,11 +75,53 @@ h2 {
     background-color: rgb(228, 169, 188);
 }
 
-#add-todo button {
+#search-todo button {
     color: white;
+    display: block;
     background: #9361bf;
     padding: 8px;
     border-radius: 4px;
+    margin: 0px auto 50px;
+}
+
+.delete {
+    margin-right: 1%;
+    color: white;
+    float: right;
+    background: #9361bf;
+    padding: 6px;
+    border-radius: 4px;
+}
+
+.edit {
+    color: white;
+    margin-right: 1%;
+    float: right;
+    background: #9361bf;
+    padding: 6px;
+    border-radius: 4px;
+}
+
+#add-todo input,
+#edit-list input[type=text] {
+    width: 90%;
+    max-width: 300px;
+    margin: 50px auto 0px;
+    display: block;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #444;
+}
+
+#add-todo button {
+    color: white;
+    display: block;
+    background: #9361bf;
+    padding: 8px;
+    border-radius: 4px;
+    margin: 0px auto 50px;
 }
 
 .edit:hover,
@@ -101,4 +130,10 @@ h2 {
 #search-todo button:hover {
     background-color: black;
     cursor: pointer;
+}
+
+#add-todo:after {
+    content: '';
+    display: block;
+    clear: both;
 }
